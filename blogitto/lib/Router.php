@@ -16,13 +16,13 @@ class Router
     {
         $this->uri = urldecode(trim($uri, '/'));
 
-        $routes = \Blogitto\Config::get('routes');
+        $routes = Config::get('routes');
 
-        $this->route = \Blogitto\Config::get('default_route');
-        $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : \Blogitto\Config::get('routes')['default'];
-        $this->controller = \Blogitto\Config::get('default_controller');
-        $this->action = \Blogitto\Config::get('default_action');
-        $this->language = \Blogitto\Config::get('default_language');
+        $this->route = Config::get('default_route');
+        $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : Config::get('routes')['default'];
+        $this->controller = Config::get('default_controller');
+        $this->action = Config::get('default_action');
+        $this->language = Config::get('default_language');
 
         // Parse url like /lng/method_prefix/controller/action/param1/param2/...
         $uri_parts = explode('?', $this->uri);
@@ -32,9 +32,9 @@ class Router
         if (count($path_parts)) {
             if (in_array(strtolower(current($path_parts)), array_keys($routes))) {
                 $this->route = strtolower(current($path_parts));
-                $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : \Blogitto\Config::get('routes')['default'];
+                $this->method_prefix = isset($routes[$this->route]) ? $routes[$this->route] : Config::get('routes')['default'];
                 array_shift($path_parts);
-            } elseif (in_array(strtolower(current($path_parts)), \Blogitto\Config::get('languages'))) {
+            } elseif (in_array(strtolower(current($path_parts)), Config::get('languages'))) {
                 $this->language = strtolower(current($path_parts));
                 array_shift($path_parts);
             }
@@ -108,6 +108,4 @@ class Router
     {
         return $this->language;
     }
-
-
 } 

@@ -5,4 +5,6 @@ define('NS', 'Blogitto');
 
 require_once(ROOT . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'init.php');
 
-$router = new \Blogitto\Router($_SERVER['REQUEST_URI']);
+//$router = new \Blogitto\Router($_SERVER['REQUEST_URI']);
+
+\Blogitto\App::run($_SERVER['REQUEST_URI']);
