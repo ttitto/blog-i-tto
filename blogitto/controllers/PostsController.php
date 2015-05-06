@@ -9,7 +9,7 @@ class PostsController extends Controller
 {
     public function  index()
     {
-        echo 'All public posts';
+        $this->data['test_content'] = 'All public posts';
     }
 
     public  function  view(){
@@ -17,7 +17,7 @@ class PostsController extends Controller
 
         if(isset($params[0])){
             $id = strtolower($params[0]);
-            echo "Here will be visualized public post with ID = $id";
+            $this->data['content'] = "Here will be visualized public post with ID = $id";
         }
     }
 } 
