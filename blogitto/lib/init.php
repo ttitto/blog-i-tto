@@ -3,9 +3,8 @@ require_once(ROOT . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'conf
 
 function __autoload($class_name)
 {
-    $class_name = str_replace(NS . DIRECTORY_SEPARATOR, '', $class_name);
-
-    $class_path = ROOT . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . $class_name . '.php';
+    $class_name = str_replace(NS_APP . DIRECTORY_SEPARATOR, '', $class_name);
+    $class_path = ROOT . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . str_replace(NS . DIRECTORY_SEPARATOR, '', $class_name) . '.php';
     $controller_path = ROOT . DIRECTORY_SEPARATOR . 'controllers' . DIRECTORY_SEPARATOR . $class_name . '.php';
     $model_path = ROOT . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . $class_name . '.php';
 

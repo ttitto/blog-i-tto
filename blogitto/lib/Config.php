@@ -1,6 +1,6 @@
 <?php
 
-namespace Blogitto;
+namespace Core;
 
 class Config
 {
