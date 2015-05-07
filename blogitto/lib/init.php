@@ -18,3 +18,7 @@ function __autoload($class_name)
         throw new Exception('Could not load file for ' . $class_name);
     }
 }
+
+function __($key, $default_lang_value){
+    return \Core\Lang::get($key, $default_lang_value);
+}
