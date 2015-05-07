@@ -7,3 +7,4 @@ define('NS_APP', 'Blogitto');
 require_once(ROOT . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'init.php');
 
 \Core\App::run($_SERVER['REQUEST_URI']);
+
