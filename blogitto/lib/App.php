@@ -38,7 +38,7 @@ class App
         }
 
         $layout = self::$router->getRoute();
-        $layout_path = VIEWS_PATH . DIRECTORY_SEPARATOR . $layout . '.html';
+        $layout_path = VIEWS_PATH . DIRECTORY_SEPARATOR . $layout . '.php';
         $layout_view_obj = new View(compact('content'), $layout_path);
         echo $layout_view_obj->render();
     }

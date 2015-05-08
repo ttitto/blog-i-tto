@@ -36,7 +36,7 @@ class Db {
         $data = array();
 
         while($row = mysqli_fetch_assoc($result)){
-            $data = $row;
+            $data[] = $row;
         }
         return $data;
     }

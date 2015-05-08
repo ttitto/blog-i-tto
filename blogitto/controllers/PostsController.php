@@ -7,9 +7,14 @@ use Core\Controller;
 
 class PostsController extends Controller
 {
+    public   function  __construct($data = array()){
+        parent::__construct($data);
+        $this->model = new Post();
+    }
+
     public function  index()
     {
-        $this->data['test_content'] = 'All public posts';
+        $this->data['posts'] = $this->model->getPosts();
     }
 
     public  function  view(){
@@ -17,7 +22,7 @@ class PostsController extends Controller
 
         if(isset($params[0])){
             $id = strtolower($params[0]);
-            $this->data['content'] = "Here will be visualized public post with ID = $id";
+            $this->data['post'] =$this->model->getById($id);
         }
     }
 } 

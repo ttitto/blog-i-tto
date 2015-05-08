@@ -31,7 +31,7 @@ class View {
         }
 
         $template_directDirname = strtolower(str_replace('Controller', '', $router->getController()));
-        $template_name = $router->getMethodPrefix() . $router->getAction() . '.html';
+        $template_name = $router->getMethodPrefix() . $router->getAction() . '.php';
 
         return VIEWS_PATH . DIRECTORY_SEPARATOR . $template_directDirname . DIRECTORY_SEPARATOR . $template_name;
     }
@@ -40,7 +40,6 @@ class View {
         $data = $this->data;
         ob_start();
         include($this->path);
-
         $content = ob_get_clean();
         return $content;
     }
